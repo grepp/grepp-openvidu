@@ -15,8 +15,11 @@ RUN apt-get update && apt-get install -y \
 COPY openvidu-server.jar /
 COPY ./entrypoint.sh /usr/local/bin
 COPY ./discover_my_public_ip.sh /usr/local/bin
+COPY ./wait-for-kms.sh /usr/local/bin
+
 RUN chmod +x /usr/local/bin/entrypoint.sh && \
-    chmod +x /usr/local/bin/discover_my_public_ip.sh
+    chmod +x /usr/local/bin/discover_my_public_ip.sh && \
+    chmod +x /usr/local/bin/wait-for-kms.sh
 
 EXPOSE 4443
 
